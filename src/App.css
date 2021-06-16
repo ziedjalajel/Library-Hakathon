@@ -36,3 +36,18 @@
     transform: rotate(360deg);
   }
 }
+
+body{
+  background-image: url("https://www.detroitlabs.com/wp-content/uploads/2018/02/alfons-morales-YLSwjSy7stw-unsplash.jpg%22");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.hello{
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: xx-large;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  flex-direction: column;
+}
