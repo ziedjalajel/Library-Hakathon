@@ -11,7 +11,7 @@ const reducer = (state = initialState, action) => {
     case ADD_BOOK:
       const { newBook } = action.payload;
       newBook.id = state.books[state.books.length - 1].id + 1;
-      newBook.Slug = slugify(newBook.name);
+      newBook.Slug = slugify(newBook.title);
 
       return {
         ...state,
@@ -19,7 +19,7 @@ const reducer = (state = initialState, action) => {
       };
     case UPDATE_BOOK:
       const { updatedBook } = action.payload;
-      updatedBook.Slug = slugify(updatedBook.name);
+      updatedBook.Slug = slugify(updatedBook.title);
       return {
         ...state,
         books: state.books.map((book) =>

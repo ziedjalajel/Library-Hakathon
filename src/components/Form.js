@@ -18,6 +18,7 @@ const CreateForm = () => {
       title: "",
       genree: "",
       image: "",
+
     }
   );
   const handleSubmit = (event) => {
