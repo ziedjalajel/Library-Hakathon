@@ -11,18 +11,18 @@ const BookList = (props) => {
   let booklistOne = books
     .filter(
       (book) =>
-        book.available  &&(
-          book.title.toLowerCase().includes(query.toLowerCase()) ||
-        book.genre.find((g) => g.toLowerCase().includes(query.toLowerCase())))
+        book.available &&
+        (book.title.toLowerCase().includes(query.toLowerCase()) ||
+          book.genre.find((g) => g.toLowerCase().includes(query.toLowerCase())))
     )
     .map((book) => <BookItem book={book} key={book.id} />);
 
-    let booklistTow = books
+  let booklistTow = books
     .filter(
       (book) =>
-        !book.available  &&(
-          book.title.toLowerCase().includes(query.toLowerCase()) ||
-        book.genre.find((g) => g.toLowerCase().includes(query.toLowerCase())))
+        !book.available &&
+        (book.title.toLowerCase().includes(query.toLowerCase()) ||
+          book.genre.find((g) => g.toLowerCase().includes(query.toLowerCase())))
     )
     .map((book) => <BookItem book={book} key={book.id} />);
 

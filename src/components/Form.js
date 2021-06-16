@@ -86,7 +86,7 @@ const CreateForm = () => {
           />
         </div>
 
-        <div class="form-group">
+        {/* <div class="form-group">
           <label>available</label>
           <select
             name="available"
@@ -96,7 +96,7 @@ const CreateForm = () => {
             <option value={true}> {"available"}</option>
             <option value={false}> {"not available"}</option>
           </select>
-        </div>
+        </div> */}
         <div class="form-group">
           <label>borrowedBy</label>
           <input

@@ -13,7 +13,8 @@ const reducer = (state = initialState, action) => {
     case ADD_BOOK:
 
       const { newBook } = action.payload;    
-      newBook.available = false;
+      newBook.available = true
+      ;
 
       newBook.id = state.books[state.books.length - 1].id + 1;
       newBook.Slug = slugify(newBook.title);
@@ -35,15 +36,14 @@ const reducer = (state = initialState, action) => {
         members: [...state.members, newMember],
       };
       case UPDATE_BOOK:
-        const { updatedBook } = action.payload;
-        updatedBook.Slug = slugify(updatedBook.title);
-        return {
-          ...state,
-          books: state.books.map((book) =>
-            book.id === updatedBook.id ? updatedBook : book
-          ),
-        };
-
+      const updatedbooks = state.books.map((book) => {
+        if (book.id === action.payload.updatedBook) book.available = !book.available;
+        return book;
+      });
+      return {
+        ...state,
+        books: updatedbooks,
+      };
 
         case UPDATE_MEMBER:
           const { updatedMember } = action.payload;
