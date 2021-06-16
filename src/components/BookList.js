@@ -8,13 +8,27 @@ import { useSelector } from "react-redux";
 const BookList = (props) => {
   const [query, setQuery] = useState("");
   const books = useSelector((state) => state.books);
-
   let booklistOne = books
-    .filter((book) => book.title.toLowerCase().includes(query.toLowerCase()))
+    .filter(
+      (book) =>
+        book.available  &&(
+          book.title.toLowerCase().includes(query.toLowerCase()) ||
+        book.genre.find((g) => g.toLowerCase().includes(query.toLowerCase())))
+    )
+    .map((book) => <BookItem book={book} key={book.id} />);
+
+    let booklistTow = books
+    .filter(
+      (book) =>
+        !book.available  &&(
+          book.title.toLowerCase().includes(query.toLowerCase()) ||
+        book.genre.find((g) => g.toLowerCase().includes(query.toLowerCase())))
+    )
     .map((book) => <BookItem book={book} key={book.id} />);
 
   return (
     <Flxii>
+      <table></table>
       <Route exact path="/books">
         {" "}
       </Route>
@@ -23,6 +37,7 @@ const BookList = (props) => {
 
       <SearchBar setQuery={setQuery} />
       <Row>{booklistOne}</Row>
+      <Row>{booklistTow}</Row>
     </Flxii>
   );
 };

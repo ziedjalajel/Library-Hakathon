@@ -1,4 +1,4 @@
-import { Logo, Navig, Nav, ThemeButton } from "../styles";
+import { Logo, Navig, Nav } from "../styles";
 
 const NavBar = (props) => {
   return (
@@ -7,7 +7,8 @@ const NavBar = (props) => {
         Home
       </Logo>
       <Nav to="/books">books</Nav>
-    
+      <Nav to="/members">members</Nav>
+
     </Navig>
   );
 };

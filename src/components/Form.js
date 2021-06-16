@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory, useParams } from "react-router";
 import { addBook, updateBook } from "../store/actions";
-import { Switch, Route } from "react-router";
+import { Switch } from "react-router";
 import { useSelector } from "react-redux";
 
 const CreateForm = () => {
@@ -18,7 +18,7 @@ const CreateForm = () => {
       title: "",
       genree: "",
       image: "",
-
+      available: "",
     }
   );
   const handleSubmit = (event) => {
@@ -64,7 +64,14 @@ const CreateForm = () => {
             placeholder="enter your book genre "
             name="genre"
             value={book.genre}
-            onChange={handleChange}
+            onChange={(event) =>
+              setBook({
+                ...book,
+                [event.target.name]: event.target.value
+                  .split(",")
+                  .map((a) => a),
+              })
+            }
           />
         </div>
         <div class="form-group">
@@ -78,16 +85,17 @@ const CreateForm = () => {
             onChange={handleChange}
           />
         </div>
+
         <div class="form-group">
           <label>available</label>
-          <input
-            type="text"
-            class="form-control"
-            placeholder="add your book availablity "
-            value={book.available}
+          <select
             name="available"
             onChange={handleChange}
-          />
+            value={book.available}
+          >
+            <option value={true}> {"available"}</option>
+            <option value={false}> {"not available"}</option>
+          </select>
         </div>
         <div class="form-group">
           <label>borrowedBy</label>
@@ -97,7 +105,14 @@ const CreateForm = () => {
             placeholder="add  borrowedBy "
             value={book.borrowedBy}
             name="borrowedBy"
-            onChange={handleChange}
+            onChange={(event) =>
+              setBook({
+                ...book,
+                [event.target.name]: event.target.value
+                  .split(",")
+                  .map((a) => +a),
+              })
+            }
           />
         </div>
         <button type="submit" class="btn btn-primary">
