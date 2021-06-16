@@ -6,17 +6,16 @@ import Home from "./components/Home";
 import "./App.css";
 import BookDetail from "./components/BookDetail";
 import NavBar from "./components/NavBar";
+import Form from "./components/Form";
 
 function App() {
-
-  return (<div>   
-    
+  return (
+    <div>
       <NavBar />
       <Head>
         <Switch>
-          <Route
-            path={["/books/CreateForm/", "/books/:bookSlug/edit/"]}
-          >
+          <Route path={["/books/CreateForm/", "/books/:bookSlug/edit"]}>
+            <Form />
           </Route>
 
           <Route exact path="/books/:bookSlug">
@@ -32,9 +31,8 @@ function App() {
           </Route>
         </Switch>
       </Head>
-      </div>
- 
-      );
+    </div>
+  );
 }
 
 export default App;

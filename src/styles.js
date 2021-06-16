@@ -82,7 +82,7 @@ font-size: 1em;
 margin: 1.25em;
 padding: 0.25em 1em;
 border-radius: 3px;
-background-color: black};
+background-color: black;
 color:white;
 
 &.active{
@@ -109,7 +109,7 @@ export const ImageSize = styled.img `
 
     `
 
-export const PhonePic= styled.img
+export const BookPic= styled.img
 `
 width: 300px;
 height: 200px;

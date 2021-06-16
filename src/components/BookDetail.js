@@ -1,7 +1,7 @@
 
 import { Redirect, useParams } from "react-router";
 import { Link } from "react-router-dom";
-import {Flxii, Logo, PhonePic} from "../styles"
+import {Flxii, Logo, BookPic} from "../styles"
 import { useSelector } from "react-redux";
 
 
@@ -16,15 +16,12 @@ if(!book) return <Redirect to ="/"/>
  return (
         <div><Flxii>
   <Link to={`/books/${book.Slug}`}>
+  <BookPic src={book.image} alt={book.title}/>
       </Link>
-          {book.author}
-
-
-        <p>
-        {book.genre}
-        </p>      <p>
-          {book.title}
-        </p>
+      
+           {book.author}
+        <p>{book.genre}</p>      
+        <p>{book.title}</p>
 
         
         <Logo to = "/books">Go Back </Logo>
