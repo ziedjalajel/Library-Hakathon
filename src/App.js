@@ -19,7 +19,7 @@ function App() {
           <Route path={["/books/CreateForm/", "/books/:bookSlug/edit"]}>
             <Form />
           </Route>
-          <Route path={["/members/CreateForm/", "/members/:memberSlug/edit"]}>
+          <Route path={["/members/CreateForm/", "/members/:memberSlug/update"]}>
             <MemberForm />
           </Route>
 
@@ -30,7 +30,6 @@ function App() {
           <Route exact path="/members/:memberSlug">
             <MemberDetail />
           </Route>
-         
 
           <Route exact path="/books">
             <BookList />

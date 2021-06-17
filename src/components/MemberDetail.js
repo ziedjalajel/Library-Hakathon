@@ -7,10 +7,18 @@ import { useSelector } from "react-redux";
 
 const MemberDetail  = (props)=> {
   const members = useSelector((state) => state.members);
+  const books = useSelector((state) => state.books);
+
   const  memberSlug  = useParams().memberSlug
 
 
-const member =members.find((member) => member.Slug === memberSlug);
+  const member =members.find((member) => member.Slug === memberSlug);
+  const borrowedMembers = member.currentlyBorrowedBooks;
+  const memberNametwo = borrowedMembers.map((book) =>
+    books.find((m) => m.id === book)
+  );
+  const memberNameOne = memberNametwo.map((book)=><p> {book.title}</p>)
+
 if(!member) return <Redirect to ="/"/>
 
  return (
@@ -22,7 +30,8 @@ if(!member) return <Redirect to ="/"/>
         <p>{member.lastName}</p> 
 
          {member.currentlyBorrowedBooks}
-        <p>{member.membership}</p>      
+         <p>{member.membership}</p>      
+         <p>{memberNameOne}</p>      
 
         
         <Logo to = "/members">Go Back </Logo>

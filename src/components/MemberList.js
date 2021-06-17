@@ -8,12 +8,18 @@ import { useSelector } from "react-redux";
 const MemberList = (props) => {
   const [query, setQuery] = useState("");
   const members = useSelector((state) => state.members);
+
   let memberlistOne = members
-    .filter((member) => member.firstName.toLowerCase().includes(query.toLowerCase())||
-    member.lastName.toLowerCase().includes(query.toLowerCase()))
+    .filter(
+      (member) =>
+        member.firstName.toLowerCase().includes(query.toLowerCase()) ||
+        member.lastName.toLowerCase().includes(query.toLowerCase())
+    )
+    .map((member) => (
+      <MemberItem  member={member} key={member.id} />
+    ));
 
-    .map((member) => <MemberItem member={member} key={member.id} />);
-
+    
   return (
     <Flxii>
       <Route exact path="/members">

@@ -5,6 +5,10 @@ import { useDispatch } from "react-redux";
 const BookItem = (props) => {
   const dispatch = useDispatch();
   const book = props.book;
+
+
+  console.log(book.title)
+
   return (
     <Flxii>
       <div>

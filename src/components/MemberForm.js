@@ -12,13 +12,13 @@ const CreateForm = () => {
 
   const dispatch = useDispatch();
   const history = useHistory();
-  const [member, setmember] = useState(
+  const [member, setMember] = useState(
     foundMembers ?? {
       firstName: "",
       lastName: "",
       currentlyBorrowedBooks: "",
       membership: "",
-        }
+    }
   );
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -28,7 +28,7 @@ const CreateForm = () => {
   };
 
   const handleChange = (event) => {
-    setmember({ ...member, [event.target.name]: event.target.value });
+    setMember({ ...member, [event.target.name]: event.target.value });
   };
   return (
     <Switch>
@@ -63,7 +63,14 @@ const CreateForm = () => {
             placeholder="Enter..... "
             name="currentlyBorrowedBooks"
             value={member.currentlyBorrowedBooks}
-            onChange={handleChange}
+            onChange={(event) =>
+              setMember({
+                ...member,
+                [event.target.name]: event.target.value
+                  .split(",")
+                  .map((a) => +a),
+              })
+            }
           />
         </div>
         <div class="form-group">
@@ -110,7 +117,7 @@ const CreateForm = () => {
           />
         </div> */}
         <button type="submit" class="btn btn-primary">
-          {CreateForm ? "add" : `edit`}
+          {CreateForm.Slug ? "add" : "edit"}
         </button>
       </form>{" "}
     </Switch>

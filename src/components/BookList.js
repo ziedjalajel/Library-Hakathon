@@ -1,4 +1,5 @@
 import BookItem from "./BookItem";
+import MemberItem from "./MemberItem";
 import { Flxii, Logo, Row } from "../styles";
 import { useState } from "react";
 import SearchBar from "./SearchBar";
@@ -25,7 +26,7 @@ const BookList = (props) => {
           book.genre.find((g) => g.toLowerCase().includes(query.toLowerCase())))
     )
     .map((book) => <BookItem book={book} key={book.id} />);
-
+    <MemberItem books={books}  />
   return (
     <Flxii>
       <table></table>

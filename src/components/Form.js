@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory, useParams } from "react-router";
-import { addBook, updateBook } from "../store/actions";
+import { addBook, updateBook, updateMember } from "../store/actions";
 import { Switch } from "react-router";
 import { useSelector } from "react-redux";
+import members from "../members";
 
 const CreateForm = () => {
   const bookSlug = useParams().bookSlug;
@@ -85,18 +86,6 @@ const CreateForm = () => {
             onChange={handleChange}
           />
         </div>
-
-        {/* <div class="form-group">
-          <label>available</label>
-          <select
-            name="available"
-            onChange={handleChange}
-            value={book.available}
-          >
-            <option value={true}> {"available"}</option>
-            <option value={false}> {"not available"}</option>
-          </select>
-        </div> */}
         <div class="form-group">
           <label>borrowedBy</label>
           <input
@@ -110,14 +99,12 @@ const CreateForm = () => {
                 ...book,
                 [event.target.name]: event.target.value
                   .split(",")
-                  .map((a) => +a),
+                  .map((a) => a),
               })
             }
           />
         </div>
-        <button type="submit" class="btn btn-primary">
-          {CreateForm ? "add" : `edit`}
-        </button>
+        <button>{CreateForm ? "add" : "edit"}</button>{" "}
       </form>{" "}
     </Switch>
   );
