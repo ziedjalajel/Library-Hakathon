@@ -1,14 +1,14 @@
 import { Logo, Navig, Nav } from "../styles";
+import navbarimg from "../booknavbar.png";
 
 const NavBar = (props) => {
   return (
     <Navig>
       <Logo exact to="/">
-        Home
+        <img src={navbarimg} alt="navimg" />
       </Logo>
-      <Nav to="/books">books</Nav>
-      <Nav to="/members">members</Nav>
-
+      <Nav to="/books">Books</Nav>
+      <Nav to="/members">Members</Nav>
     </Navig>
   );
 };

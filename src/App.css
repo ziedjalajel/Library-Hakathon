@@ -37,18 +37,22 @@
   }
 }
 
-/* body {
-  background-image: url("https://www.detroitlabs.com/wp-content/uploads/2018/02/alfons-morales-YLSwjSy7stw-unsplash.jpg%22");
+body {
+  /* background-image: url("https://jooinn.com/images/library-37.jpg"); */
+  background-image: url("https://librarycarpentry.org/images/header-bg.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   color: white;
-} */
+}
 .hello {
   color: white;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: xx-large;
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-family: monospace;
   flex-direction: column;
+}
+#container {
+  background-color: rgba(0, 0, 0, 0.5);
 }

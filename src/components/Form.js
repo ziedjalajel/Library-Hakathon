@@ -36,33 +36,33 @@ const CreateForm = () => {
     <Switch>
       <form onSubmit={handleSubmit}>
         <div class="form-group">
-          <label>author</label>
+          <label>Author</label>
           <input
             type="text"
             class="form-control"
-            placeholder="author"
+            placeholder="Enter Author Name"
             name="author"
             value={book.author}
             onChange={handleChange}
           />
         </div>
         <div class="form-group">
-          <label>title</label>
+          <label>Title</label>
           <input
             type="text"
             class="form-control"
-            placeholder="enter your book name "
+            placeholder="Enter book title "
             value={book.title}
             name="title"
             onChange={handleChange}
           />
         </div>
         <div class="form-group">
-          <label>genre</label>
+          <label>Genre</label>
           <input
             type="text"
             class="form-control"
-            placeholder="enter your book genre "
+            placeholder="Enter Book Genre "
             name="genre"
             value={book.genre}
             onChange={(event) =>
@@ -80,18 +80,18 @@ const CreateForm = () => {
           <input
             type="text"
             class="form-control"
-            placeholder="add your book image "
+            placeholder="Add Book URL "
             value={book.image}
             name="image"
             onChange={handleChange}
           />
         </div>
         <div class="form-group">
-          <label>borrowedBy</label>
+          <label>Borrowed By</label>
           <input
             type="text"
             class="form-control"
-            placeholder="add  borrowedBy "
+            placeholder="Add Borrowed By "
             value={book.borrowedBy}
             name="borrowedBy"
             onChange={(event) =>
@@ -104,7 +104,9 @@ const CreateForm = () => {
             }
           />
         </div>
-        <button>{CreateForm ? "add" : "edit"}</button>{" "}
+        <button className="btn btn-primary">
+          {!foundBook ? "Add" : "Edit"}
+        </button>{" "}
       </form>{" "}
     </Switch>
   );

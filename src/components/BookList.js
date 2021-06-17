@@ -1,6 +1,6 @@
 import BookItem from "./BookItem";
 import MemberItem from "./MemberItem";
-import { Flxii, Logo, Row } from "../styles";
+import { Flxii, Logo, Row, BookListStyle, MarginBottom } from "../styles";
 import { useState } from "react";
 import SearchBar from "./SearchBar";
 import { Route } from "react-router";
@@ -26,20 +26,30 @@ const BookList = (props) => {
           book.genre.find((g) => g.toLowerCase().includes(query.toLowerCase())))
     )
     .map((book) => <BookItem book={book} key={book.id} />);
-    <MemberItem books={books}  />
+  <MemberItem books={books} />;
   return (
-    <Flxii>
-      <table></table>
-      <Route exact path="/books">
-        {" "}
-      </Route>
+    <>
+      <Flxii>
+        <table></table>
+        <Route exact path="/books">
+          {" "}
+        </Route>
 
-      <Logo to="books/CreateForm">Add</Logo>
+        <Logo to="books/CreateForm">Add</Logo>
 
-      <SearchBar setQuery={setQuery} />
-      <Row>{booklistOne}</Row>
-      <Row>{booklistTow}</Row>
-    </Flxii>
+        <SearchBar setQuery={setQuery} />
+        <Row>
+          <BookListStyle>{booklistOne}</BookListStyle>
+        </Row>
+      </Flxii>
+      <MarginBottom />
+
+      <Flxii>
+        <Row>
+          <BookListStyle>{booklistTow}</BookListStyle>
+        </Row>
+      </Flxii>
+    </>
   );
 };
 export default BookList;

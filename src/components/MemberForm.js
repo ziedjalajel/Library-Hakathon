@@ -56,11 +56,11 @@ const CreateForm = () => {
           />
         </div>
         <div class="form-group">
-          <label>currentlyBorrowedBooks</label>
+          <label>currently Borrowed Books</label>
           <input
             type="text"
             class="form-control"
-            placeholder="Enter..... "
+            placeholder="Enter Book Id"
             name="currentlyBorrowedBooks"
             value={member.currentlyBorrowedBooks}
             onChange={(event) =>
@@ -117,7 +117,7 @@ const CreateForm = () => {
           />
         </div> */}
         <button type="submit" class="btn btn-primary">
-          {CreateForm.Slug ? "add" : "edit"}
+          {foundMembers ? "Edit" : "Add"}
         </button>
       </form>{" "}
     </Switch>

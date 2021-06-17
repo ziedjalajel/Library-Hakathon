@@ -1,5 +1,5 @@
 import MemberItem from "./MemberItem";
-import { Flxii, Logo, Row } from "../styles";
+import { Flxii, Logo, Row, BookListStyle } from "../styles";
 import { useState } from "react";
 import SearchBar from "./SearchBar";
 import { Route } from "react-router";
@@ -15,21 +15,20 @@ const MemberList = (props) => {
         member.firstName.toLowerCase().includes(query.toLowerCase()) ||
         member.lastName.toLowerCase().includes(query.toLowerCase())
     )
-    .map((member) => (
-      <MemberItem  member={member} key={member.id} />
-    ));
+    .map((member) => <MemberItem member={member} key={member.id} />);
 
-    
   return (
     <Flxii>
-      <Route exact path="/members">
+      <Route exact path="/members" id="container">
         {" "}
       </Route>
 
       <Logo to="members/CreateForm">Add</Logo>
 
       <SearchBar setQuery={setQuery} />
-      <Row>{memberlistOne}</Row>
+      <Row>
+        <BookListStyle>{memberlistOne}</BookListStyle>
+      </Row>
     </Flxii>
   );
 };

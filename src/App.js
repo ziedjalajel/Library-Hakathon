@@ -12,7 +12,7 @@ import MemberForm from "./components/MemberForm";
 
 function App() {
   return (
-    <div>
+    <div className="hello">
       <NavBar />
       <Head>
         <Switch>

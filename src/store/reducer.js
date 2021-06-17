@@ -77,6 +77,9 @@ const reducer = (state = initialState, action) => {
 
     case UPDATE_MEMBER:
       const { updatedMember } = action.payload;
+      const oldMember = state.members.find(
+        (member) => updatedMember.id === member.id
+      );
       if (updatedMember.membership === "silver") {
         updatedMember.currentlyBorrowedBooks =
           updatedMember.currentlyBorrowedBooks.slice(0, 2);
@@ -90,14 +93,23 @@ const reducer = (state = initialState, action) => {
           updatedMember.currentlyBorrowedBooks.slice(0, 5);
       }
       let newbooksOne = [...state.books];
-      updatedMember.currentlyBorrowedBooks.forEach((id) =>
-        newbooksOne.map((book) => {
+      oldMember.currentlyBorrowedBooks.forEach((id) => {
+        newbooksOne = newbooksOne.map((book) => {
+          if (book.id === id) {
+            book.available = true;
+          }
+          return book;
+        });
+      });
+      updatedMember.currentlyBorrowedBooks.forEach((id) => {
+        newbooksOne = newbooksOne.map((book) => {
           if (book.id === id) {
             book.borrowedBy.push(id);
             book.available = false;
           }
-        })
-      );
+          return book;
+        });
+      });
 
       updatedMember.Slug = slugify(updatedMember.firstName);
 
